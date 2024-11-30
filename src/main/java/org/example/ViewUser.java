@@ -18,9 +18,9 @@ import java.util.Optional;
 public class ViewUser extends Application {
 
     // Database connection parameters
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/Pharmacy"; // Change to your DB URL
-    private static final String DB_USERNAME = "root"; // Change to your DB username
-    private static final String DB_PASSWORD = "Yasminchahraoui2003"; // Change to your DB password
+    private static final String DB_URL = "jdbc:mysql://localhost:3306/Pharmacy"; 
+    private static final String DB_USERNAME = "root"; 
+    private static final String DB_PASSWORD = "Yasminchahraoui2003"; 
 
     @Override
     public void start(Stage primaryStage) {

@@ -1,80 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="599.0" prefWidth="753.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.Controllers.UpdateUserController">
+<AnchorPane fx:id="mainPane" prefHeight="600.0" prefWidth="800.0" styleClass="main-pane" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.Controllers.UpdateUserController">
    <children>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="217.0" layoutY="14.0" prefHeight="60.0" prefWidth="318.0" text="Update User" textAlignment="CENTER" textFill="#525151df">
+      <!-- Title -->
+      <Label alignment="CENTER" text="Update User" textFill="#2C3E50" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
          <font>
-            <Font name="Arial Black" size="20.0" />
-         </font></Label>
-      <Button fx:id="ReturnButton" contentDisplay="CENTER" layoutX="688.0" layoutY="32.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="18.0" onMouseClicked="#goToDashboard">
+            <Font name="Arial Black" size="28.0" />
+         </font>
+      </Label>
+
+      <!-- Close Button -->
+      <Button fx:id="ReturnButton" onMouseClicked="#goToDashboard" prefHeight="35.0" prefWidth="35.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
          <graphic>
-            <ImageView fitHeight="20.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/close.png" />
+                  <Image url="@images/close.png" />
                </image>
             </ImageView>
          </graphic>
-         <font>
-            <Font size="7.0" />
-         </font>
       </Button>
-      <Separator layoutX="27.0" layoutY="85.0" prefHeight="3.0" prefWidth="703.0" />
-      <TextField fx:id="usernameField" layoutX="234.0" layoutY="103.0" prefHeight="26.0" prefWidth="235.0" promptText="Enter Username" />
-      <Button fx:id="searchButton" layoutX="481.0" layoutY="102.0" mnemonicParsing="false" onMouseClicked="#SearchUserByUsername" prefHeight="28.0" prefWidth="87.0" text="Search">
-         <font>
-            <Font name="Berlin Sans FB" size="12.0" />
-         </font>
-      </Button>
-      <Label layoutX="107.0" layoutY="164.0" text=" Role :" textFill="#000000a7">
-         <font>
-            <Font name="Britannic Bold" size="16.0" />
-         </font>
-      </Label>
-      <ComboBox fx:id="roleComboBox" layoutX="107.0" layoutY="194.0" prefHeight="26.0" prefWidth="214.0" />
-      <Label layoutX="107.0" layoutY="249.0" text="FullName:" textFill="#000000a7">
-         <font>
-            <Font name="Britannic Bold" size="15.0" />
-         </font>
-      </Label>
-      <TextField fx:id="fullNameField" layoutX="107.0" layoutY="278.0" prefHeight="26.0" prefWidth="214.0" />
-      <Label layoutX="107.0" layoutY="332.0" text=" Date Of Birth :" textFill="#000000a7">
-         <font>
-            <Font name="Britannic Bold" size="15.0" />
-         </font>
-      </Label>
-      <DatePicker fx:id="dateOfBirthPicker" layoutX="107.0" layoutY="363.0" prefHeight="26.0" prefWidth="214.0" />
-      <Label layoutX="429.0" layoutY="165.0" text="Email :" textFill="#000000a7">
-         <font>
-            <Font name="Britannic Bold" size="15.0" />
-         </font>
-      </Label>
-      <TextField fx:id="emailField" layoutX="427.0" layoutY="194.0" prefHeight="26.0" prefWidth="214.0" />
-      <Label layoutX="426.0" layoutY="249.0" text="Phone :" textFill="#000000a7">
-         <font>
-            <Font name="Britannic Bold" size="15.0" />
-         </font>
-      </Label>
-      <TextField fx:id="phoneField" layoutX="427.0" layoutY="278.0" prefHeight="26.0" prefWidth="214.0" />
-      <Label layoutX="427.0" layoutY="332.0" text="Address :" textFill="#000000a7">
-         <font>
-            <Font name="Britannic Bold" size="15.0" />
-         </font>
-      </Label>
-      <TextField fx:id="addressField" layoutX="427.0" layoutY="363.0" prefHeight="26.0" prefWidth="214.0" />
-      <Button fx:id="updateInfosButton" layoutX="244.0" layoutY="451.0" mnemonicParsing="false" onMouseClicked="#UpdateUser" prefHeight="34.0" prefWidth="256.0" text="Update Infos" textAlignment="CENTER">
-         <font>
-            <Font name="Berlin Sans FB" size="12.0" />
-         </font></Button>
+
+      <!-- Main Content -->
+      <VBox fx:id="vBox" alignment="TOP_CENTER" spacing="20.0"
+            AnchorPane.bottomAnchor="100.0"
+            AnchorPane.leftAnchor="100.0"
+            AnchorPane.rightAnchor="100.0"
+            AnchorPane.topAnchor="80.0">
+
+         <!-- Separator -->
+         <Separator orientation="HORIZONTAL" />
+         <!-- Search Bar -->
+         <HBox alignment="CENTER" spacing="10.0">
+            <TextField fx:id="usernameField" prefHeight="30.0" prefWidth="400.0" promptText="Enter Username" maxWidth="400.0" />
+            <Button fx:id="searchButton" onMouseClicked="#SearchUserByUsername" prefHeight="20.0" style="-fx-background-color: #3498DB; -fx-text-fill: white; -fx-font-size: 14px; -fx-pref-height: 40px; -fx-pref-width: 80px;" text="Search" HBox.hgrow="NEVER" />
+         </HBox>
+
+         <!-- Form Layout -->
+         <GridPane alignment="CENTER" hgap="50" style="-fx-padding: 10px;" vgap="20">
+            <columnConstraints>
+               <ColumnConstraints halignment="RIGHT" minWidth="120.0" />
+               <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" maxWidth="400.0" />
+            </columnConstraints>
+
+            <!-- Role -->
+            <Label style="-fx-font-size: 15px; -fx-text-fill: #2C3E50;" text="Role :" />
+            <ComboBox fx:id="roleComboBox" prefHeight="30.0" prefWidth="488.0" GridPane.columnIndex="1" />
+
+            <!-- Full Name -->
+            <Label style="-fx-font-size: 15px; -fx-text-fill: #2C3E50;" text="Full Name :" GridPane.rowIndex="1" />
+            <TextField fx:id="fullNameField" prefHeight="30.0" GridPane.columnIndex="1" GridPane.rowIndex="1" maxWidth="400.0" />
+
+            <!-- Date of Birth -->
+            <Label style="-fx-font-size: 15px; -fx-text-fill: #2C3E50;" text="Date of Birth :" GridPane.rowIndex="2" />
+            <DatePicker fx:id="dateOfBirthPicker" prefHeight="30.0" prefWidth="478.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+            <!-- Email -->
+            <Label style="-fx-font-size: 15px; -fx-text-fill: #2C3E50;" text="Email :" GridPane.rowIndex="3" />
+            <TextField fx:id="emailField" prefHeight="30.0" GridPane.columnIndex="1" GridPane.rowIndex="3" maxWidth="400.0" />
+
+            <!-- Phone -->
+            <Label style="-fx-font-size: 15px; -fx-text-fill: #2C3E50;" text="Phone :" GridPane.rowIndex="4" />
+            <TextField fx:id="phoneField" prefHeight="30.0" GridPane.columnIndex="1" GridPane.rowIndex="4" maxWidth="400.0" />
+
+            <!-- Address -->
+            <Label style="-fx-font-size: 15px; -fx-text-fill: #2C3E50;" text="Address :" GridPane.rowIndex="5" />
+            <TextField fx:id="addressField" prefHeight="30.0" GridPane.columnIndex="1" GridPane.rowIndex="5" maxWidth="400.0" />
+
+            <rowConstraints>
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+            </rowConstraints>
+         </GridPane>
+         <Button fx:id="updateInfosButton" layoutX="210.0"
+                 layoutY="521.0" mnemonicParsing="false"
+                 onMouseClicked="#UpdateUser" prefHeight="35.0"
+                 prefWidth="380.0"
+                 style="-fx-background-color: #2ECC71; -fx-text-fill: white; -fx-font-size: 16px; -fx-pref-height: 45px;"
+                 text="Update Infos" textAlignment="CENTER"
+                 AnchorPane.bottomAnchor="44.0" AnchorPane.leftAnchor="210.0"
+                 AnchorPane.rightAnchor="210.0" />
+      </VBox>
+
    </children>
 </AnchorPane>

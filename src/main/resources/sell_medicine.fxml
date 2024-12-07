@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #9cc8b5;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pharmacy_sidi_abbad.controller.SellMedicineController">
+
+    <!-- Top: Title -->
+    <top>
+        <HBox alignment="CENTER" style="-fx-background-color: #9cc8b5;">
+            <padding>
+                <Insets bottom="5" left="10" right="10" top="5" />
+            </padding>
+            <Label style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: white;" text="Sell Medicine" />
+        </HBox>
+    </top>
+
+    <!-- Left: Search Section -->
+    <left>
+        <VBox alignment="TOP_CENTER" prefWidth="200.0" spacing="10" style="-fx-background-color: #326d6a; -fx-border-color: gray; -fx-border-width: 1;">
+            <padding>
+                <Insets bottom="10" left="10" right="10" top="10" />
+            </padding>
+            <Label style="-fx-font-size: 14px; -fx-text-fill: white;" text="Search" />
+            <TextField fx:id="searchField" promptText="Search medicines..." />
+            <ListView fx:id="medicineList" />
+        </VBox>
+    </left>
+
+    <!-- Center: Medicine Details -->
+    <center>
+        <VBox alignment="TOP_CENTER" spacing="10" style="-fx-background-color: #326d6a; -fx-border-color: gray; -fx-border-width: 1;">
+            <padding>
+                <Insets bottom="10" left="15" right="15" top="10" />
+            </padding>
+            <GridPane alignment="TOP_CENTER" hgap="10" vgap="10">
+
+                <!-- Medicine Details -->
+                <Label style="-fx-text-fill: white; -fx-font-size: 14;" text="Medicine ID" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                <TextField fx:id="idField" promptText="Enter Medicine ID" editable="true" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                <Label style="-fx-text-fill: white; -fx-font-size: 14;" text="Name" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                <TextField fx:id="nameField" promptText="Enter Medicine Name" editable="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                <Label style="-fx-text-fill: white; -fx-font-size: 14;" text="Pharmacist Name" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                <TextField fx:id="companyField" promptText="Enter Company Name" editable="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                <Label style="-fx-text-fill: white; -fx-font-size: 14;" text="Price Per Unit" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                <TextField fx:id="priceField" promptText="Enter Price" editable="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+                <Label style="-fx-text-fill: white; -fx-font-size: 14;" text="No. of Units" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                <TextField fx:id="unitsField" promptText="Enter Quantity" editable="true" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
+                <Label style="-fx-text-fill: white; -fx-font-size: 14;" text="Total Price" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                <TextField fx:id="totalField" promptText="Auto-calculated" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+
+                <!-- Add to Cart Button -->
+                <Button fx:id="addToCartButton" prefHeight="30" prefWidth="120" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-size: 12px; -fx-font-weight: bold;" text="Add To Cart" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            </GridPane>
+        </VBox>
+    </center>
+
+    <!-- Bottom: Table Section -->
+    <bottom>
+        <VBox spacing="10" style="-fx-background-color: #9cc8b5;">
+            <padding>
+                <Insets bottom="10" left="10" right="10" top="10" />
+            </padding>
+
+            <!-- Tableau des médicaments ajoutés -->
+            <TableView fx:id="cartTable" prefHeight="200" prefWidth="750">
+                <columns>
+                    <TableColumn fx:id="colMedicineID" text="Medicine ID" prefWidth="120" />
+                    <TableColumn fx:id="colName" text="Name" prefWidth="150" />
+                    <TableColumn fx:id="colPricePerUnit" text="Price Per Unit" prefWidth="120" />
+                    <TableColumn fx:id="colPharmName" text="Pharm Name" prefWidth="150" />
+                    <TableColumn fx:id="colTotal" text="Total" prefWidth="120" />
+                </columns>
+            </TableView>
+
+            <!-- RS Label and Purchase Button -->
+            <HBox alignment="CENTER_RIGHT" spacing="10" style="-fx-padding: 5;">
+                <Label text="RS: " style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: white;" />
+                <Label fx:id="rsLabel" text="0" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: white;" />
+                <Button fx:id="purchaseButton" text="Purchase Print" prefHeight="30" prefWidth="150" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-size: 12px;" />
+            </HBox>
+        </VBox>
+    </bottom>
+</BorderPane>

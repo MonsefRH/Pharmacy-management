@@ -22,4 +22,25 @@ public class MedicineDao {
         }
     }
 
+    public ResultSet search1 (String b) throws SQLException{
+        Connection connection=DatabaseConnection.getConnection();
+       Statement stmt=connection.createStatement();
+       ResultSet res=stmt.executeQuery("select * from medicine where id='"+b+"'");
+       return res ;
+   }
+
+   public void update1(String c,String f) throws SQLException{
+       Connection connection=DatabaseConnection.getConnection();
+       Statement stmt=connection.createStatement();
+       String query="UPDATE `medicine` SET `price`='"+c+"' WHERE id='"+f+"'";
+       stmt.executeUpdate(query);
+   }
+
+   public void update2 (String a,String b)throws SQLException{
+       Connection connection=DatabaseConnection.getConnection();
+       Statement stmt=connection.createStatement();
+       String query="UPDATE `medicine` SET `quantity`='"+a+"'where id='"+b+"'";
+       stmt.executeUpdate(query);
+   }
+
 }

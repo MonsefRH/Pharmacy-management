@@ -6,6 +6,7 @@ import javafx.stage.Stage;
 import org.example.AdminDashBoard;
 import org.example.Dao.MedicineDao;
 import org.example.Models.Medicine;
+import org.example.PharmacyDashBoard;
 import org.example.View.AjoutDeMedicamentView;
 
 public class AjoutDeMedicamentController {
@@ -54,13 +55,13 @@ public class AjoutDeMedicamentController {
         view.getExitButton().setOnAction(actionEvent -> {
             try {
                 // Create an instance of AdminDashboard
-                AdminDashBoard adminDashboard = new AdminDashBoard();
+                PharmacyDashBoard pharmacyDashBoard = new PharmacyDashBoard();
 
                 // Get the current stage
                 Stage currentStage = (Stage) view.getExitButton().getScene().getWindow();
 
                 // Call the start method of AdminDashboard to switch scenes
-                adminDashboard.start(currentStage);
+                pharmacyDashBoard.start(currentStage);
             } catch (Exception e) {
                 e.printStackTrace();
             }

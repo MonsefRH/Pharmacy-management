@@ -1,17 +1,14 @@
 package org.example.Controllers;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import org.example.AdminDashBoard;
 import org.example.Dao.UserDao;
 import org.example.Models.User;
+import org.example.PharmacyDashBoard;
 
-import java.io.IOException;
 import java.sql.Date;
 
 public class UpdateUserController {
@@ -38,8 +35,11 @@ public class UpdateUserController {
     private Button searchButton;
     @FXML
     private Button updateInfosButton;
+    @FXML
+    private Button ReturnButton;
 
     private final UserDao userDao = new UserDao();
+
 
     @FXML
     void initialize() {
@@ -103,25 +103,16 @@ public class UpdateUserController {
         alert.setContentText(message);
         alert.showAndWait();
     }
+    @FXML
+    private void goToDashboard() {
+        // Assuming MainApp holds a reference to the primary stage and scenes
+        Stage stage = (Stage) ReturnButton.getScene().getWindow();
 
-
-
-    // Function to handle CloseButton click (navigate to Dashboard)
-    public void goToDashboard(ActionEvent event) {
-        try {
-            // Load the FXML of the previous page or dashboard
-            // Use the correct path for loading the FXML file
-            Parent root = FXMLLoader.load(getClass().getResource("../../../../resources/MainView.fxml"));
-
-            // Get the current stage from the button
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-
-            // Set the new scene and show the stage
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace(); // Handle the exception if FXML is not found
-        }
+        // Set the scene to the dashboard
+        Scene dashboardScene = AdminDashBoard.getDashboardScene(); // Ensure this method returns the Scene for PharmacyDashBoard
+        stage.setScene(dashboardScene);
     }
+
+
+
 }

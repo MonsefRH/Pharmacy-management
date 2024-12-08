@@ -18,7 +18,7 @@ import javafx.stage.Stage;
 import java.net.URL;
 
 public class AdminDashBoard extends Application {
-
+    static private Scene dashboardScene;
     @Override
     public void start(Stage primaryStage) {
         // Title
@@ -74,6 +74,7 @@ public class AdminDashBoard extends Application {
 
         // Scene and Stage
         Scene scene = new Scene(root, 1000, 1000);
+        dashboardScene=scene;
         primaryStage.setTitle("Admin Dashboard");
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -151,6 +152,9 @@ public class AdminDashBoard extends Application {
             System.err.println("Error loading icon: " + e.getMessage());
             return new Button(text); // Fallback to text-only button
         }
+    }
+    static public Scene getDashboardScene() {
+        return dashboardScene;
     }
 
     public static void main(String[] args) {

@@ -5,7 +5,7 @@ import javafx.stage.Stage;
 import org.example.Controllers.AjoutDeMedicamentController;
 import org.example.View.AjoutDeMedicamentView;
 
-public class AjoutDeMedicament extends Application {
+public class AddMedicinePage extends Application {
 
     @Override
     public void start(Stage primaryStage) {

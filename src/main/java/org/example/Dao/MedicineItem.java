@@ -1,4 +1,4 @@
-package com.example.pharmacy_sidi_abbad;
+package org.example.Dao;
 
 import javafx.beans.property.*;
 

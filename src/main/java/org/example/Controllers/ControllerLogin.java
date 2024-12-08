@@ -2,7 +2,7 @@ package org.example.Controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import org.example.pproject.Dao.DataBaseConnection;
+import org.example.Dao.DatabaseConnection;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -20,7 +20,7 @@ public class ControllerLogin {
     @FXML
     protected boolean verifyLogin(String username, String password) {
         String query = "SELECT password FROM users WHERE username = ?";
-        try (Connection con = DataBaseConnection.getConnection();
+        try (Connection con = DatabaseConnection.getConnection();
              PreparedStatement ps = con.prepareStatement(query)) {
 
             ps.setString(1, username);

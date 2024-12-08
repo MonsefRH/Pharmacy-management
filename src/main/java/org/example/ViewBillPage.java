@@ -79,7 +79,7 @@ public class ViewBillPage extends Application {
 
         // Logout and Exit buttons
         Button logoutButton = new Button("Logout");
-        Button exitButton = new Button("Exit");
+        Button exitButton = new Button("Return");
 
         // Add functionality to the Exit button
         exitButton.setOnAction(event -> {

@@ -1,6 +1,4 @@
-package com.example.pharmacy_sidi_abbad.model;
-
-import com.example.pharmacy_sidi_abbad.MedicineItem;
+package org.example.Dao;
 
 import java.sql.*;
 import java.util.ArrayList;

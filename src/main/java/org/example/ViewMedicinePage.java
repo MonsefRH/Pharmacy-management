@@ -6,7 +6,7 @@ import org.example.Controllers.MedicamentsController;
 import org.example.Dao.MedicamentsDao;
 import org.example.View.MedicamentsView;
 
-public class MedicamentsApp extends Application {
+public class ViewMedicinePage extends Application {
 
     @Override
     public void start(Stage primaryStage) {

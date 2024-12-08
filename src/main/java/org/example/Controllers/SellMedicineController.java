@@ -1,7 +1,7 @@
-package com.example.pharmacy_sidi_abbad.controller;
+package org.example.Controllers;
 
-import com.example.pharmacy_sidi_abbad.MedicineItem;
-import com.example.pharmacy_sidi_abbad.model.SellModel;
+import org.example.Dao.MedicineItem;
+import org.example.Dao.SellModel;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

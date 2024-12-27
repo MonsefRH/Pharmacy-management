@@ -2,6 +2,9 @@ package org.example;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
+import org.example.Controllers.ViewUserController;
+import org.example.Dao.ViewUserDatabase;
+import org.example.View.ViewUserView;
 
 public class ViewUserLauncher extends Application {
 

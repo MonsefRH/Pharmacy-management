@@ -2,6 +2,8 @@ package org.example;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
+import org.example.Controllers.ProfilePageController;
+import org.example.View.ProfilePageView;
 
 public class ProfilePageLauncher extends Application {
 

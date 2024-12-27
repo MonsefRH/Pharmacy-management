@@ -1,4 +1,7 @@
-package org.example;
+package org.example.Controllers;
+
+import org.example.Dao.ProfilePageDatabase;
+import org.example.View.ProfilePageView;
 
 public class ProfilePageController {
 

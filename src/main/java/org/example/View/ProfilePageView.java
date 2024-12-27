@@ -1,4 +1,4 @@
-package org.example;
+package org.example.View;
 
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -50,7 +50,7 @@ public class ProfilePageView {
         messageLabel = new Label();
 
         // Create the profile image (profile.png from resources)
-        Image profileImage = new Image(getClass().getResourceAsStream("/profile.png"));
+        Image profileImage = new Image(getClass().getResourceAsStream("/images/profile.png"));
         ImageView imageView = new ImageView(profileImage);
         imageView.setFitWidth(200);  // Increased the width of the image
         imageView.setFitHeight(200); // Increased the height of the image

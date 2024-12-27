@@ -1,4 +1,4 @@
-package org.example;
+package org.example.View;
 
 import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
@@ -7,6 +7,8 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
+import org.example.Controllers.ViewUserController;
+import org.example.Dao.ViewUserDatabase;
 
 public class ViewUserView {
 

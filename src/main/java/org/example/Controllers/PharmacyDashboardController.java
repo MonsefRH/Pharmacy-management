@@ -27,16 +27,16 @@ public class PharmacyDashboardController {
             }
         });
 
-//        view.getSellMedicineButton().setOnAction(event -> {
-//            System.out.println("Sell Medicine clicked!");
-//            SellMedicinePage sellMedicinePage = new SellMedicinePage();
-//            try {
-//                Stage stage = (Stage) view.getSellMedicineButton().getScene().getWindow();
-//                sellMedicinePage.start(stage);
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-//        });
+        view.getSellMedicineButton().setOnAction(event -> {
+            System.out.println("Sell Medicine clicked!");
+            SellMedicinePage sellMedicinePage = new SellMedicinePage();
+            try {
+                Stage stage = (Stage) view.getSellMedicineButton().getScene().getWindow();
+                sellMedicinePage.start(stage);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
 
         view.getViewMedicineButton().setOnAction(event -> {
             System.out.println("View Medicine clicked!");
@@ -60,20 +60,20 @@ public class PharmacyDashboardController {
             }
         });
 
-//        view.getUpdateMedicineButton().setOnAction(event -> {
-//            System.out.println("Update Medicine clicked!");
-//            UpdateMedicinePage updateMedicinePage = new UpdateMedicinePage();
-//            try {
-//                Stage stage = (Stage) view.getUpdateMedicineButton().getScene().getWindow();
-//                updateMedicinePage.start(stage);
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-//        });
+        view.getUpdateMedicineButton().setOnAction(event -> {
+            System.out.println("Update Medicine clicked!");
+            UpdateMedicinePage updateMedicinePage = new UpdateMedicinePage();
+            try {
+                Stage stage = (Stage) view.getUpdateMedicineButton().getScene().getWindow();
+                updateMedicinePage.start(stage);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
 
         view.getProfileButton().setOnAction(event -> {
             System.out.println("Profile clicked!");
-            ProfilePage profilePage = new ProfilePage();
+            ProfilePageLauncher profilePage = new ProfilePageLauncher();
             try {
                 Stage stage = (Stage) view.getProfileButton().getScene().getWindow();
                 profilePage.start(stage);

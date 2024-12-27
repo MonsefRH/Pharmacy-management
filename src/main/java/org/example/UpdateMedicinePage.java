@@ -8,10 +8,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class UpdateMedicicnePage extends Application{
+public class UpdateMedicinePage extends Application{
     @Override
     public void start (Stage primarystage)throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("UpdateMedicineView.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("UpdateMedicineView.fxml"));
         Parent root = loader.load();
         UpdateMedicineController con=loader.getController();
         con.setmainwindow(primarystage);

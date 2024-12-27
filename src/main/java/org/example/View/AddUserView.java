@@ -1,4 +1,6 @@
-package org.example;
+package org.example.View;
+
+import org.example.Controllers.AddUserController;
 
 import javax.swing.*;
 import java.awt.*;

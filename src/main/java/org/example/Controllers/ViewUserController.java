@@ -1,9 +1,10 @@
-package org.example;
+package org.example.Controllers;
 
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableView;
+import org.example.Dao.ViewUserDatabase;
 
 public class ViewUserController {
 

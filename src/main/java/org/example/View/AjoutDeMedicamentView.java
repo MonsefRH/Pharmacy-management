@@ -165,6 +165,8 @@ public class AjoutDeMedicamentView {
         return exitButton;
     }
 
+    public Button getLogoutButton() {return logoutButton;}
+
     public Label getMessageLabel() {
         return messageLabel;
     }

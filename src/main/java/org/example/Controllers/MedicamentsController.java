@@ -5,7 +5,7 @@ import javafx.scene.control.ButtonType;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.example.AdminDashBoard;
-import org.example.Dao.MedicamentsDao;
+import org.example.Dao.MedicineDao;
 import org.example.Models.Medicament;
 import org.example.PharmacyDashBoard;
 import org.example.View.MedicamentsView;
@@ -16,9 +16,9 @@ import java.util.List;
 
 public class MedicamentsController {
     private MedicamentsView view;
-    private MedicamentsDao dao;
+    private MedicineDao dao;
 
-    public MedicamentsController(MedicamentsView view, MedicamentsDao dao) {
+    public MedicamentsController(MedicamentsView view, MedicineDao dao) {
         this.view = view;
         this.dao = dao;
 

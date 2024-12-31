@@ -5,6 +5,7 @@ package org.example.Controllers;
 import javafx.stage.Stage;
 import org.example.AdminDashBoard;
 import org.example.Dao.MedicineDao;
+import org.example.LoginPage;
 import org.example.Models.Medicine;
 import org.example.PharmacyDashBoard;
 import org.example.View.AjoutDeMedicamentView;
@@ -62,6 +63,21 @@ public class AjoutDeMedicamentController {
 
                 // Call the start method of AdminDashboard to switch scenes
                 pharmacyDashBoard.start(currentStage);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+
+        view.getLogoutButton().setOnAction(actionEvent -> {
+            try {
+                // Create an instance of AdminDashboard
+                LoginPage loginPage = new LoginPage();
+
+                // Get the current stage
+                Stage currentStage = (Stage) view.getLogoutButton().getScene().getWindow();
+
+                // Call the start method of AdminDashboard to switch scenes
+                loginPage.start(currentStage);
             } catch (Exception e) {
                 e.printStackTrace();
             }

@@ -3,14 +3,14 @@ package org.example;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import org.example.Controllers.MedicamentsController;
-import org.example.Dao.MedicamentsDao;
+import org.example.Dao.MedicineDao;
 import org.example.View.MedicamentsView;
 
 public class ViewMedicinePage extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        MedicamentsDao dao = new MedicamentsDao();
+        MedicineDao dao = new MedicineDao();
         MedicamentsView view = new MedicamentsView(primaryStage);
 
         // Pass the DAO and View to the Controller

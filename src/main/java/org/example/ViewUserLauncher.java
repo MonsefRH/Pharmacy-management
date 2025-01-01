@@ -14,7 +14,7 @@ public class ViewUserLauncher extends Application {
         ViewUserController controller = new ViewUserController(database);
         ViewUserView view = new ViewUserView(controller);
 
-        // Démarrer la vue
+      
         view.start(primaryStage);
     }
 

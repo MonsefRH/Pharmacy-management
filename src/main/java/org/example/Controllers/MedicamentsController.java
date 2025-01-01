@@ -25,6 +25,7 @@ public class MedicamentsController {
         // Setup actions
         setupTableView();
         setupRedButton();
+        setupSearch();
     }
 
     private void setupTableView() {
@@ -48,13 +49,10 @@ public class MedicamentsController {
     private void setupRedButton() {
         view.getRedButton().setOnAction(event -> {
             try {
-                // Create an instance of AdminDashboard
                 PharmacyDashBoard pharmacyDashBoard = new PharmacyDashBoard();
 
-                // Get the current stage
                 Stage currentStage = (Stage) view.getRedButton().getScene().getWindow();
 
-                // Call the start method of AdminDashboard to switch scenes
                 pharmacyDashBoard.start(currentStage);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -81,4 +79,29 @@ public class MedicamentsController {
             }
         });
     }
+
+    private void setupSearch() {
+        view.getSearchField().textProperty().addListener((observable, oldValue, newValue) -> {
+            String query = newValue.trim().toLowerCase();
+
+            if (query.isEmpty()) {
+                try {
+                    List<Medicament> allMedicines = dao.getAllMedicines();
+                    view.getTableView().getItems().setAll(allMedicines);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                try {
+                    List<Medicament> filteredMedicines = dao.searchMedicines(query);
+                    view.getTableView().getItems().setAll(filteredMedicines);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+
+
 }

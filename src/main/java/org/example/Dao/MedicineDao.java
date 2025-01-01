@@ -77,4 +77,26 @@ public class MedicineDao {
         }
     }
 
+    public List<Medicament> searchMedicines(String query) throws SQLException {
+        String sql = "SELECT * FROM medicines WHERE LOWER(name) LIKE ? OR LOWER(company) LIKE ?";
+        try (Connection connection = DatabaseConnection.getConnection();
+             PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setString(1, "%" + query + "%");
+            stmt.setString(2, "%" + query + "%");
+            ResultSet rs = stmt.executeQuery();
+
+            List<Medicament> medicines = new ArrayList<>();
+            while (rs.next()) {
+                medicines.add(new Medicament(
+                        rs.getString("id"),
+                        rs.getString("name"),
+                        rs.getString("company"),
+                        rs.getInt("quantity"),
+                        rs.getDouble("price")
+                ));
+            }
+            return medicines;
+        }
+    }
+
 }

@@ -15,7 +15,7 @@ public class AddUserModel {
     public boolean saveUserToDatabase(String role, String fullName, String dob, String phone, String email, String username, String password, String address) {
         boolean isSaved = false;
 
-        // SQL query to insert data into the user table
+        
         String query = "INSERT INTO user (Username, Password, FullName, DOB, Phone, Email, Address, Role) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USER, DATABASE_PASSWORD);

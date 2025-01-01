@@ -73,5 +73,4 @@ public class MedicamentsView {
         stage.setScene(scene);
         stage.setTitle("Medicines");
     }
-
 }

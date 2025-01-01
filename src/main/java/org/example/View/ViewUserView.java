@@ -84,11 +84,17 @@ public class ViewUserView {
         // Close button (top right corner)
         Button closeButton = new Button("X");
         closeButton.setStyle("-fx-background-color: red; -fx-text-fill: white; -fx-font-weight: bold;");
-        closeButton.setOnAction(e -> {
-            // Set the scene to the dashboard
-            Scene dashboardScene = AdminDashBoard.getDashboardScene(); // Ensure this method returns the Scene for PharmacyDashBoard
-            primaryStage.setScene(dashboardScene);
-            });
+        closeButton.setOnAction(event -> {
+            try {
+                AdminDashBoard adminDashBoard = new AdminDashBoard();
+
+                Stage currentStage = (Stage) closeButton.getScene().getWindow();
+
+                adminDashBoard.start(currentStage);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
 
         // Align the close button
         HBox closeBox = new HBox(closeButton);

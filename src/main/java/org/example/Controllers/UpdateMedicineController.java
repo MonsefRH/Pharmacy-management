@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.example.PharmacyDashBoard;
 import org.example.Dao.MedicineDao;
 
 import javafx.event.ActionEvent;
@@ -125,7 +126,8 @@ public class UpdateMedicineController {
     
     @FXML
     public void back(ActionEvent event)throws IOException{
-        
+        PharmacyDashBoard pd= new PharmacyDashBoard();
+        pd.start(mainwindow);
     }
 
     private boolean testfield(TextField[] textFields) {

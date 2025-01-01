@@ -11,7 +11,7 @@ public class ViewUserDatabase {
     private static final String DB_USERNAME = "root";
     private static final String DB_PASSWORD = "Yasminchahraoui2003";
 
-    // User class
+    
     public static class User {
         private int id;
         private String username, password, fullName, dob, phone, email, address, role;

@@ -1,5 +1,7 @@
 package org.example.Dao;
 
+
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -84,6 +86,21 @@ public class SellModel {
             e.printStackTrace();
         }
     }
+
+    public void recordSale(MedicineItem item) {
+        String query = "INSERT INTO factures (medicine_id, medicine_name, price_per_unit, quantity, total_price) VALUES (?, ?, ?, ?, ?)";
+        try (PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setInt(1, item.getMedicineID());
+            stmt.setString(2, item.getName());
+            stmt.setInt(3, item.getPricePerUnit());
+            stmt.setInt(4, item.getNoOfUnits());
+            stmt.setInt(5, item.getTotalPrice());
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 
 
 }

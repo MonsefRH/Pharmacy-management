@@ -7,6 +7,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import java.io.File;
 
 import java.util.List;
 
@@ -167,16 +168,30 @@ public class SellMedicineController {
     }
 
     private void purchaseAndPrint() {
+        // Get the path to the Downloads folder and set the file name
+        String downloadsPath = System.getProperty("user.home") + File.separator + "Downloads";
+        String pdfFilePath = downloadsPath + File.separator + "purchase_recap.pdf";
+
+        // Update stock and record each sale
         for (MedicineItem item : cartItems) {
             sellModel.updateMedicineStock(item.getMedicineID(), item.getNoOfUnits());
+            sellModel.recordSale(item); // Record each sale in the factures table
         }
 
-        showAlert("Purchase Successful", "Stock updated and purchase recorded.");
+        // Generate the PDF in the Downloads folder
+        PdfGen.generatePDF(cartItems, totalRS);
+
+        // Show success alert with the file path
+        showAlert("Purchase Successful", "Stock updated, purchase recorded, and PDF generated at: " + pdfFilePath);
+
+        // Clear the cart and reset UI elements
         cartItems.clear();
         cartTable.refresh();
         totalRS = 0;
         rsLabel.setText("0");
     }
+
+
 
     private void clearFields() {
         idField.clear();

@@ -18,6 +18,7 @@ import org.example.Controllers.ViewUserController;
 import org.example.Dao.ViewUserDatabase;
 import org.example.View.ProfilePageView;
 import org.example.View.ViewUserView;
+import org.example.View.AddUserView;
 
 import java.net.URL;
 
@@ -124,7 +125,7 @@ public class AdminDashBoard extends Application {
                     AddUserPage adduserpage = new AddUserPage();
                     try {
                         Stage stage = (Stage) button.getScene().getWindow(); // Get current stage
-                        adduserpage.setVisible(true); // Launch the Add user page on the same stage
+                        AddUserView addUserView = new AddUserView(stage);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }

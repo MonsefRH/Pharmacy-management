@@ -1,4 +1,4 @@
-package org.example;
+package org.example.View;
 
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -6,6 +6,8 @@ import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import javafx.beans.binding.Bindings;
+import org.example.AdminDashBoard;
+import org.example.PharmacyDashBoard;
 
 public class AddUserView {
 
@@ -13,6 +15,7 @@ public class AddUserView {
 
     public AddUserView(Stage primaryStage) {
         this.primaryStage = primaryStage;
+        show();
     }
 
     public void show() {
@@ -63,9 +66,17 @@ public class AddUserView {
         // "Retour" button
         Button backButton = new Button("Retour");
         backButton.setStyle("-fx-background-color: #DC143C; -fx-text-fill: black;");
-        backButton.setOnAction(e -> {
+        backButton.setOnAction(event -> {
             // Action for "Retour" button
-            primaryStage.close();
+            try {
+                AdminDashBoard adminDashBoard = new AdminDashBoard();
+
+                Stage currentStage = (Stage) backButton.getScene().getWindow();
+
+                adminDashBoard.start(currentStage);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         });
 
         buttonBox.getChildren().addAll(saveButton, backButton);

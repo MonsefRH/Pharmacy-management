@@ -22,10 +22,10 @@ public class ProfilePageController {
     }
 
     private void initializeProfile() {
-        // Fetch user profile data from the database
+        
         ProfilePageDatabase.User user = database.getUserProfile(userEmail);
 
-        // If the user is found, display the data
+        // display the data si utilisateur existe
         if (user != null) {
             view.getNameField().setText(user.getName());
             view.getMobileField().setText(user.getMobile());

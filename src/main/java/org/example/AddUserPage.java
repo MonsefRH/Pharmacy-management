@@ -2,13 +2,15 @@ package org.example;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
+import org.example.AddUserView;
+
 
 public class AddUserPage extends Application {
 
     @Override
     public void start(Stage primaryStage) {
         // Set up the view (UI layout)
-        AddUserView userView = new AddUserView(primaryStage);
+        AddUserView userView = new org.example.AddUserView(primaryStage);
 
         // Show the view
         userView.show();

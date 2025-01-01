@@ -9,6 +9,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.example.AdminDashBoard;
+import org.example.PharmacyDashBoard;
 
 public class ProfilePageView {
 
@@ -46,11 +47,17 @@ public class ProfilePageView {
         closeButton.setStyle("-fx-background-color: red; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 16px; -fx-padding: 5px 10px;");
 
         // Close button functionality
-        closeButton.setOnAction(e -> {
-            // Set the scene to the dashboard
-            Scene dashboardScene = AdminDashBoard.getDashboardScene(); // Ensure this method returns the Scene for PharmacyDashBoard
-            stage.setScene(dashboardScene);
-        }); // Close the window when the button is clicked
+        closeButton.setOnAction(event -> {
+            try {
+                PharmacyDashBoard pharmacyDashBoard = new PharmacyDashBoard();
+
+                Stage currentStage = (Stage) closeButton.getScene().getWindow();
+
+                pharmacyDashBoard.start(currentStage);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
 
         // Create a label to display messages (success or error)
         messageLabel = new Label();

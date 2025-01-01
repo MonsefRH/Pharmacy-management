@@ -12,7 +12,7 @@ public class AddUserPage extends Application {
         // Set up the view (UI layout)
         AddUserView userView = new AddUserView(primaryStage);
 
-        // Show the view
+        // Show the View
         userView.show();
     }
 

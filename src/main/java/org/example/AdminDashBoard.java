@@ -166,6 +166,17 @@ public class AdminDashBoard extends Application {
                     }
                 });
             }
+            if ("Logout".equals(text)) {
+                button.setOnAction(event -> {
+                    LoginPage loginPage = new LoginPage();
+                    try {
+                        Stage stage = (Stage) button.getScene().getWindow(); // Get current stage
+                        loginPage.start(stage); // Launch the logging page on the same stage
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                });
+            }
             if ("Exit".equals(text)) {
                 button.setOnAction(event -> {
                     // Create a confirmation dialog

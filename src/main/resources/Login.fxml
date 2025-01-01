@@ -11,14 +11,14 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #f4f4f9;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #f4f4f9;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.Controllers.ControllerLogin">
    <left>
       <AnchorPane prefWidth="250.0" style="-fx-background-color: #2d6a8f;" BorderPane.alignment="CENTER">
          <children>
             <!-- Logo Section -->
             <ImageView fitHeight="125.0" fitWidth="63.0" layoutX="94.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../image/logo_login.png" />
+                  <Image url="./images/logo_login.png" />
                </image>
                <effect>
                   <DropShadow color="#1f4d6e" radius="10" />
@@ -42,7 +42,7 @@
                   <Font name="Arial" size="14.0" />
                </font>
             </Label>
-            <TextField layoutX="50.0" layoutY="130.0" prefWidth="250.0" promptText="Enter your username" style="-fx-border-color: #2d6a8f; -fx-border-radius: 5; -fx-background-radius: 5;" />
+            <TextField fx:id="usernameField" layoutX="50.0" layoutY="130.0" prefWidth="250.0" promptText="Enter your username" style="-fx-border-color: #2d6a8f; -fx-border-radius: 5; -fx-background-radius: 5;" />
 
             <!-- Password Label and Field -->
             <Label layoutX="50.0" layoutY="180.0" text="Password" textFill="#2d6a8f">
@@ -50,10 +50,10 @@
                   <Font name="Arial" size="14.0" />
                </font>
             </Label>
-            <PasswordField layoutX="50.0" layoutY="210.0" prefWidth="250.0" promptText="Enter your password" style="-fx-border-color: #2d6a8f; -fx-border-radius: 5; -fx-background-radius: 5;" />
+            <PasswordField fx:id="PasswordField" layoutX="50.0" layoutY="210.0" prefWidth="250.0" promptText="Enter your password" style="-fx-border-color: #2d6a8f; -fx-border-radius: 5; -fx-background-radius: 5;" />
 
             <!-- Login Button -->
-            <Button layoutX="50.0" layoutY="270.0" prefWidth="250.0" style="-fx-background-color: #2d6a8f; -fx-background-radius: 5;" text="Login" textFill="#ffffff" />
+            <Button layoutX="50.0" layoutY="270.0" prefWidth="250.0" style="-fx-background-color: #2d6a8f; -fx-background-radius: 5;" text="Login" textFill="#ffffff"  onAction="#Login"/>
          </children>
       </AnchorPane>
    </center>

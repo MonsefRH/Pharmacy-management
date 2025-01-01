@@ -126,7 +126,7 @@ public class AddUserView {
 
         gridPane.add(control, 1, rowIndex);
 
-        // Make the control stretchable horizontally
+        // Make control stretchable horizontally
         GridPane.setHgrow(control, Priority.ALWAYS);
     }
 }

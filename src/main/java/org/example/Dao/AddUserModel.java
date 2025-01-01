@@ -9,9 +9,9 @@ public class AddUserModel {
 
     private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/Pharmacy";
     private static final String DATABASE_USER = "root";  // Replace with your MySQL username
-    private static final String DATABASE_PASSWORD = "Nadoua2004";  // Replace with your MySQL password
+    private static final String DATABASE_PASSWORD = "";  // Replace with your MySQL password
 
-    // This method will save the user information into the database
+    // This method will save the user informations into the database
     public boolean saveUserToDatabase(String role, String fullName, String dob, String phone, String email, String username, String password, String address) {
         boolean isSaved = false;
 

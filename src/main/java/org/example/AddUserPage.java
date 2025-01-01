@@ -105,10 +105,10 @@ public class AddUserPage extends JFrame {
         JButton saveButton = new JButton("Save");
         JButton resetButton = new JButton("Reset");
         saveButton.setBackground(new Color(34, 139, 34)); // Green
-        saveButton.setForeground(Color.WHITE);
+        saveButton.setForeground(Color.BLACK);
         saveButton.setFont(new Font("Verdana", Font.BOLD, 14));
         resetButton.setBackground(new Color(220, 20, 60)); // Crimson
-        resetButton.setForeground(Color.WHITE);
+        resetButton.setForeground(Color.BLACK);
         resetButton.setFont(new Font("Verdana", Font.BOLD, 14));
 
         buttonPanel.add(saveButton);

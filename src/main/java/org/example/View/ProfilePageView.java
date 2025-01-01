@@ -12,6 +12,7 @@ import org.example.AdminDashBoard;
 
 public class ProfilePageView {
 
+
     private Stage stage;
     private TextField nameField;
     private TextField mobileField;

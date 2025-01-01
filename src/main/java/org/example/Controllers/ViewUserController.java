@@ -30,7 +30,7 @@ public class ViewUserController {
             // Show success alert
             showSuccessAlert();
         } catch (Exception e) {
-            // Show error alert if there's an issue
+            
             showErrorAlert(e.getMessage());
         }
     }

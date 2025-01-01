@@ -1,8 +1,11 @@
 package org.example;
 
+import org.example.View.AddUserView;
+
+import javax.swing.SwingUtilities;
 
 public class Main {
     public static void main(String[] args) {
-            System.out.println("Hello World!");
+        SwingUtilities.invokeLater(() -> new AddUserView().setVisible(true));
     }
 }

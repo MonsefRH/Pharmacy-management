@@ -14,6 +14,10 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import org.example.Controllers.ViewUserController;
+import org.example.Dao.ViewUserDatabase;
+import org.example.View.ProfilePageView;
+import org.example.View.ViewUserView;
 
 import java.net.URL;
 
@@ -114,6 +118,43 @@ public class AdminDashBoard extends Application {
             // Set a gap between icon and text
             button.setGraphicTextGap(15);
 
+
+            if ("Add User".equals(text)) {
+                button.setOnAction(event -> {
+                    AddUserPage adduserpage = new AddUserPage();
+                    try {
+                        Stage stage = (Stage) button.getScene().getWindow(); // Get current stage
+                        adduserpage.setVisible(true); // Launch the Add user page on the same stage
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                });
+            }
+            if ("Profile".equals(text)) {
+                button.setOnAction(event -> {
+                    try {
+                        Stage stage = (Stage) button.getScene().getWindow(); // Get current stage
+                        ProfilePageView ProfilPage = new ProfilePageView(stage);
+                        // Launch the View Bill page on the same stage
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                });
+            }
+            if ("View User".equals(text)) {
+                button.setOnAction(event -> {
+                    try {
+                        Stage stage = (Stage) button.getScene().getWindow(); // Get current stage
+                        ViewUserDatabase viewuserDatabase = new ViewUserDatabase();
+                        ViewUserController viewuserController = new ViewUserController(viewuserDatabase);
+                        ViewUserView Viewuser = new ViewUserView(viewuserController);
+                        Viewuser.start(stage);
+                        // Launch the View Bill page on the same stage
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                });
+            }
             if ("Update User".equals(text)) {
                 button.setOnAction(event -> {
                     UpdateUserPage UpdateUserPage = new UpdateUserPage();
@@ -125,7 +166,6 @@ public class AdminDashBoard extends Application {
                     }
                 });
             }
-
             if ("Exit".equals(text)) {
                 button.setOnAction(event -> {
                     // Create a confirmation dialog

@@ -16,7 +16,7 @@ public class UpdateUserPage extends Application {
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("UpdateUserView.fxml"));
             AnchorPane root = loader.load();  // Load the FXML and get the root node
             // Set up the scene and stage
-            Scene scene = new Scene(root);
+            Scene scene = new Scene(root,1000, 1000);
             primaryStage.setScene(scene);
             primaryStage.setTitle("Pharamacy Management System");
             primaryStage.show();
@@ -25,7 +25,4 @@ public class UpdateUserPage extends Application {
         }
     }
 
-    public static void main(String[] args) {
-        launch(args);
-    }
 }

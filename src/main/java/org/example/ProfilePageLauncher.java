@@ -9,8 +9,8 @@ public class ProfilePageLauncher extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        // User's email can be dynamically passed based on the logged-in user
-        String userEmail = "houda@example.com"; // Example email
+        
+        String userEmail = "houda@example.com"; // Exemple email
 
         // Initialize the ProfilePageView
         ProfilePageView view = new ProfilePageView(primaryStage);
@@ -20,6 +20,6 @@ public class ProfilePageLauncher extends Application {
     }
 
     public static void main(String[] args) {
-        launch(args);  // This launches the JavaFX application
+        launch(args);  
     }
 }

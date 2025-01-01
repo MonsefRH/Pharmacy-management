@@ -7,6 +7,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
+import org.example.AdminDashBoard;
 import org.example.Controllers.ViewUserController;
 import org.example.Dao.ViewUserDatabase;
 
@@ -83,7 +84,11 @@ public class ViewUserView {
         // Close button (top right corner)
         Button closeButton = new Button("X");
         closeButton.setStyle("-fx-background-color: red; -fx-text-fill: white; -fx-font-weight: bold;");
-        closeButton.setOnAction(e -> primaryStage.close());
+        closeButton.setOnAction(e -> {
+            // Set the scene to the dashboard
+            Scene dashboardScene = AdminDashBoard.getDashboardScene(); // Ensure this method returns the Scene for PharmacyDashBoard
+            primaryStage.setScene(dashboardScene);
+            });
 
         // Align the close button
         HBox closeBox = new HBox(closeButton);
@@ -110,7 +115,7 @@ public class ViewUserView {
         root.setBottom(footerBox);
 
         // Create the scene
-        Scene scene = new Scene(root, 1000, 600);
+        Scene scene = new Scene(root, 1000, 1000);
         primaryStage.setTitle("View User");
         primaryStage.setScene(scene);
         primaryStage.show();

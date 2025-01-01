@@ -12,7 +12,7 @@ public class LoginPage extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        URL fxmlLocation = getClass().getResource("/org/example/pproject/views/Login.fxml");
+        URL fxmlLocation = getClass().getClassLoader().getResource("login.fxml");
         if (fxmlLocation == null) {
             throw new IllegalStateException("FXML file not found.");
         }

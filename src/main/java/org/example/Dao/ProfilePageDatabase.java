@@ -7,7 +7,7 @@ public class ProfilePageDatabase {
     // Database 
     private static final String DB_URL = "jdbc:mysql://localhost:3306/Pharmacy";
     private static final String DB_USERNAME = "root";
-    private static final String DB_PASSWORD = "Yasminchahraoui2003";
+    private static final String DB_PASSWORD = "";
 
     private Connection connection;
 

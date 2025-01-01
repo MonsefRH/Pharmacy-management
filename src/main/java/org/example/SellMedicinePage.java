@@ -11,7 +11,7 @@ public class SellMedicinePage extends Application {
     public void start(Stage primaryStage) throws Exception {
         // Charger le fichier FXML
 
-        Parent root = FXMLLoader.load(getClass().getResource("/layout/sell_medicine.fxml"));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("sell_medicine.fxml"));
 
         // Charger la feuille de style CSS
         Scene scene = new Scene(root, 800, 500);

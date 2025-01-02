@@ -7,8 +7,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import java.io.File;
 
+import java.io.File;
 import java.util.List;
 
 public class SellMedicineController {
@@ -56,6 +56,7 @@ public class SellMedicineController {
 
     @FXML
     private TableColumn<MedicineItem, Integer> colTotal;
+
     @FXML
     private Button addToCartButton;
 
@@ -106,9 +107,7 @@ public class SellMedicineController {
     private void searchMedicines(String keyword) {
         Platform.runLater(() -> {
             List<String> medicines = sellModel.searchMedicines(keyword);
-
             ObservableList<String> medicineNames = FXCollections.observableArrayList(medicines);
-
             medicineList.setItems(medicineNames);
         });
     }
@@ -116,12 +115,10 @@ public class SellMedicineController {
     private void loadMedicineDetails(String medicineName) {
         Platform.runLater(() -> {
             MedicineItem medicine = sellModel.getMedicineDetails(medicineName);
-
             if (medicine != null) {
                 idField.setText(String.valueOf(medicine.getMedicineID()));
                 nameField.setText(medicine.getName());
                 priceField.setText(String.valueOf(medicine.getPricePerUnit()));
-
             }
         });
     }
@@ -147,14 +144,12 @@ public class SellMedicineController {
             int noOfUnits = Integer.parseInt(unitsField.getText().trim());
             int total = Integer.parseInt(totalField.getText().trim());
 
-            // Vérifier si la quantité est disponible en stock
             int availableStock = sellModel.getMedicineStock(medicineID);
             if (noOfUnits > availableStock) {
                 showAlert("Stock Insufficient", "Only " + availableStock + " units available in stock.");
                 return;
             }
 
-            // Ajouter l'article au panier
             MedicineItem item = new MedicineItem(medicineID, name, company, pricePerUnit, noOfUnits, total);
             cartItems.add(item);
 
@@ -168,30 +163,23 @@ public class SellMedicineController {
     }
 
     private void purchaseAndPrint() {
-        // Get the path to the Downloads folder and set the file name
         String downloadsPath = System.getProperty("user.home") + File.separator + "Downloads";
         String pdfFilePath = downloadsPath + File.separator + "purchase_recap.pdf";
 
-        // Update stock and record each sale
         for (MedicineItem item : cartItems) {
             sellModel.updateMedicineStock(item.getMedicineID(), item.getNoOfUnits());
-            sellModel.recordSale(item); // Record each sale in the factures table
+            sellModel.recordSale(item);
         }
 
-        // Generate the PDF in the Downloads folder
         PdfGen.generatePDF(cartItems, totalRS);
 
-        // Show success alert with the file path
         showAlert("Purchase Successful", "Stock updated, purchase recorded, and PDF generated at: " + pdfFilePath);
 
-        // Clear the cart and reset UI elements
         cartItems.clear();
         cartTable.refresh();
         totalRS = 0;
         rsLabel.setText("0");
     }
-
-
 
     private void clearFields() {
         idField.clear();

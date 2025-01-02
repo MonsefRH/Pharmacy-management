@@ -1,7 +1,5 @@
 package org.example.Dao;
 
-
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,57 +10,49 @@ public class SellModel {
     public SellModel() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacy_sidi_abbad", "root", "");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacy_management", "root", "");
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    // Méthode pour récupérer les noms des médicaments pour la recherche
     public List<String> searchMedicines(String keyword) {
         List<String> medicines = new ArrayList<>();
         String query = "SELECT name FROM medicines WHERE name LIKE ?";
-
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
-            stmt.setString(1, keyword + "%"); // Recherche les noms qui commencent par le mot-clé
+            stmt.setString(1, keyword + "%");
             ResultSet rs = stmt.executeQuery();
-
             while (rs.next()) {
-                medicines.add(rs.getString("name")); // Ajoute uniquement les noms à la liste
+                medicines.add(rs.getString("name"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-        return medicines; // Retourne la liste des noms des médicaments
+        return medicines;
     }
 
-    // Méthode pour récupérer les détails d'un médicament
     public MedicineItem getMedicineDetails(String medicineName) {
         String query = "SELECT * FROM medicines WHERE name = ?";
         MedicineItem medicine = null;
-
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
-            stmt.setString(1, medicineName); // Recherche exacte par nom
+            stmt.setString(1, medicineName);
             ResultSet rs = stmt.executeQuery();
-
             if (rs.next()) {
-                // Récupérer les informations du médicament
                 medicine = new MedicineItem(
                         rs.getInt("id"),
                         rs.getString("name"),
-                        null, // Si 'company' n'existe pas dans votre table, mettre null
-                        rs.getInt("price_per_unit"),
+                        null,
+                        rs.getInt("price"),
                         rs.getInt("quantity"),
-                        0 // Pas de calcul de prix total ici
+                        0
                 );
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-        return medicine; // Retourne l'objet MedicineItem contenant les informations
+        return medicine;
     }
+
     public int getMedicineStock(int medicineID) {
         String query = "SELECT quantity FROM medicines WHERE id = ?";
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
@@ -76,6 +66,7 @@ public class SellModel {
         }
         return 0;
     }
+
     public void updateMedicineStock(int medicineID, int quantitySold) {
         String query = "UPDATE medicines SET quantity = quantity - ? WHERE id = ?";
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
@@ -100,7 +91,4 @@ public class SellModel {
             e.printStackTrace();
         }
     }
-
-
-
 }

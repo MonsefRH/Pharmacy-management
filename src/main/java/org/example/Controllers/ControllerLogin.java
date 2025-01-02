@@ -10,7 +10,6 @@ import javafx.stage.Stage;
 import org.example.AdminDashBoard;
 import org.example.Dao.DatabaseConnection;
 import org.example.PharmacyDashBoard;
-import org.example.View.PharmacyDashboardView;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -59,7 +58,8 @@ public class ControllerLogin {
                 adminDashBoard.start(primaryStage); // Use the same stage to launch Admin Dashboard
             } else if (Role.contains("Pharmacist")) {
                 // Load the Pharmacy Dashboard
-                PharmacyDashboardView pharmacyView = new PharmacyDashboardView(primaryStage);
+                PharmacyDashBoard pharmacyView = new PharmacyDashBoard();
+                pharmacyView.start(primaryStage);
             }
 
         }
